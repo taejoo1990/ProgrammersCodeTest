@@ -1,0 +1,26 @@
+package myProejct;
+
+import java.util.Arrays;
+
+public class Main10 {
+	public static void main(String[] args) {
+		Solution10 sol = new Solution10();
+		int[] case1 = {2, 1, 6};
+		int[] query = {5, 2, 1, 7, 5};
+		sol.solution(case1, １);
+	}
+}
+
+class Solution10 {
+    public int[] solution(int[] num_list, int n) {
+        int[] answer = new int[num_list.length];
+        for(int i=n ; i<num_list.length+n ; i++) {
+        	if(i>=num_list.length+n) {
+        		answer[i-n] += num_list[i-n];
+        		continue;
+        	}
+        	answer[i-n] = num_list[i];
+        }
+        return answer;
+    }
+}

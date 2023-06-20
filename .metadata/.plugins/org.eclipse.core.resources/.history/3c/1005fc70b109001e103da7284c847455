@@ -1,0 +1,35 @@
+package myProejct;
+
+public class Main4 {
+	public static void main(String[] args) {
+		Main4 main = new Main4();
+		main.solution(0, 6);
+	}
+	private int solution(int a, int b) {
+		Dice dice1 = new Dice(a);
+		Dice dice2 = new Dice(b);
+		
+		
+		return 0;
+	}
+}
+class Dice{
+	private int score;
+	private boolean isEvenNumber;
+	public Dice(int score) throws Exception {
+		if(score<1 || score>6) {
+			throw new Exception("êîéöÇ™ê≥ÇµÇ≠Ç†ÇËÇ‹ÇπÇÒÅB");
+		}
+		this.score=score;
+		this.isEvenNumber = score%2==0? true : false;
+	}
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	
+}

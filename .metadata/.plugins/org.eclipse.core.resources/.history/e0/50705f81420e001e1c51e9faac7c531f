@@ -1,0 +1,19 @@
+package myProejct;
+
+import java.util.Arrays;
+
+public class Main8 {
+	public static void main(String[] args) {
+		Solution8 sol = new Solution8();
+		int[] case1 = {1,2,1};
+		sol.solution(case1);
+	}
+}
+
+class Solution8 {
+	public int[] solution(int[] arr) {
+		String str = Arrays.toString(arr);
+		System.out.println(str.length());
+		return null;
+	}
+}

@@ -1,0 +1,27 @@
+package myProejct;
+
+public class Main6 {
+	public static void main(String[] args) {
+		Solution6 solution = new Solution6();
+		String case1 = "AProgrammersz";
+		String case2 = ")(";
+		String case3 = "()))((()";
+		//int answer[] = solution.solution(case1);
+		solution.solution("z");
+    }
+}
+class Solution6{
+    public int[] solution(String my_string) {
+        int answer[] = new int[52];
+        for(char tmp : my_string.toCharArray()) {
+        	if((int)tmp<91) {
+        		answer[(int)tmp-65] += 1;
+        	}else {
+        		answer[(int)tmp-71] +=1;
+        	}
+        	System.out.println((int)tmp-72);
+        }
+        return answer;
+    }
+}
+

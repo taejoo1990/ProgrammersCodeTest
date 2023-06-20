@@ -1,0 +1,31 @@
+package myProejct;
+
+import java.util.Arrays;
+
+public class Main9 {
+	public static void main(String[] args) {
+		Solution9 sol = new Solution9();
+		int[] case1 = {0, 1, 2, 3, 4, 5};
+		int[] query = {4, 1, 2};
+		sol.solution(case1, query);
+	}
+}
+
+class Solution9 {
+    public int[] solution(int[] arr, int[] query) {
+        int index = 0;
+        System.out.println(Arrays.toString(arr));
+        for(int tmp : query) {
+        	System.out.println(tmp);
+        	if(index%2==0) {
+        		arr = Arrays.copyOfRange(arr, 0, tmp+1);
+        		System.out.println(Arrays.toString(arr));
+        	}else {
+        		arr = Arrays.copyOfRange(arr, tmp, arr.length);
+        		System.out.println(Arrays.toString(arr));
+        	}
+        	index ++;
+        }
+        return arr;
+    }
+}

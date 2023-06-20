@@ -1,0 +1,26 @@
+package myProejct;
+
+import java.util.ArrayList;
+
+public class Main6 {
+	public static void main(String[] args) {
+		Solution6 solution = new Solution6();
+		String case1 = "AProgrammersz";
+		String case2 = ")(";
+		String case3 = "()))((()";
+		//int answer[] = solution.solution(case1);
+		//solution.solution("z");
+		String a = "abc";
+		int i = 1;
+		String hey = a.substring(i-1,i);
+		System.out.println(hey);
+    }
+}
+class Solution6{
+    public String solution(String my_string, int[] indices) {
+        String answer = "";
+        
+        return answer;
+    }
+}
+

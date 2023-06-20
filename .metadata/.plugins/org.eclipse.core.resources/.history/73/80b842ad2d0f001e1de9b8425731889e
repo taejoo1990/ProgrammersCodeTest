@@ -1,0 +1,22 @@
+package levelTest;
+
+public class Level1 {
+
+	public static void main(String[] args) {
+		SolutionLevel1 lv1 = new SolutionLevel1();
+	}
+	class SolutionLevel1 {
+	    public String solution(String[] seoul) {
+	        int position = 0;
+	        if(seoul.length>=1&&seoul.length<=1000){
+	            for(int i=0 ; i<seoul.length ; i++){
+	                if(seoul[i].length()>=1 && seoul[i].length()<=20 && "Kim".equals(seoul[i])){
+	                    position = i;
+	                }
+	            }
+	        }
+	        String answer = "김서방은 "+ position +"에 있다";
+	        return answer;
+	    }
+	}
+}

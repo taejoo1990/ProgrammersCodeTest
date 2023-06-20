@@ -1,0 +1,36 @@
+package myProejct;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Main8 {
+	public static void main(String[] args) {
+		Solution8 sol = new Solution8();
+		int[] case1 = {1,2,1};
+		sol.solution(case1);
+	}
+}
+
+class Solution8 {
+	public int[] solution(int[] arr) {
+		boolean startCopy = false;
+		String str = "";
+		String data = "";
+		for(int tmp : arr) {
+			if(startCopy) {
+				data+=tmp;
+				if(tmp==2) {
+					str+=data;
+					data="";
+				}
+			}else {
+				if(tmp==2) {
+					str+=tmp;
+					startCopy = true;
+				}
+			}
+		}
+		
+	}
+}

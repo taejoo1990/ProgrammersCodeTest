@@ -1,0 +1,52 @@
+package myProejct;
+
+public class Main5 {
+	public static void main(String[] args) {
+		Solution solution = new Solution();
+		String case1 = "(()())()";
+		String case2 = ")(";
+		String case3 = "()))((()";
+		solution.solution(case1);
+	
+    }
+}
+class Solution{
+	public String solution(String p) {
+		String[] strs = devideStr(p);
+		System.out.println(strs[0]);
+		System.out.println(strs[1]);
+		
+		
+		return p;
+	}
+	private String[] devideStr(String str) {
+		String[] result = new String[2];
+		int openCnt = 0;
+		int closeCnt = 0;
+		for(int i=0; i<str.length(); i++) {
+			if(str.charAt(i)=='(') {
+				openCnt ++;
+			}else {
+				closeCnt++;
+			}
+			if(openCnt>0 && closeCnt>0 && openCnt==closeCnt) {
+				result[0]=str.substring(0,i+1);
+				result[1]=str.substring(i+1);
+				return result;
+			}
+		}
+		return result;
+	}
+	private boolean isCorrectStr(String str) {
+		if(str.equals("") || str.indexOf('(')==0) {
+			return false;
+		}
+		return true;
+	}
+	private String modifyStr(String str) {
+		
+		return str;
+	}
+	
+}
+

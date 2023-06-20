@@ -1,0 +1,36 @@
+package myProejct;
+
+public class Main4 {
+	public static void main(String[] args) {
+		Main4 main = new Main4();
+		main.solution(0, 6);
+	}
+	private int solution(int a, int b) {
+		Dice dice1 = new Dice(a);
+		Dice dice2 = new Dice(b);
+		
+		
+		return 0;
+	}
+}
+class Dice{
+	private int score;
+	private boolean isEvenNumber;
+	public Dice(int score) {
+		if(score<1 || score>6) {
+			Exception ex = new Exception();
+			ex.setStackTrace(null);
+		}
+		this.score=score;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+	
+	
+}

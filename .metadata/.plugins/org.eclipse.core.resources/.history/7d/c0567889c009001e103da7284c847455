@@ -1,0 +1,47 @@
+package myProejct;
+
+public class Main5 {
+	public static void main(String[] args) {
+		Main5 main = new Main5();
+		main.solution("(()())()");
+	}
+	
+    public String solution(String p) {
+        //1
+        if(p.equals("")) {
+        	 return "";
+        }
+        //2
+        int openCnt =0;
+        int closeCnt =0;
+        boolean createSecond = false;
+        String u = "";
+        String v = "";
+        for(int i=0; i<p.length(); i++) {
+        	if(!createSecond) {
+        	u += p.charAt(i);
+        	}else {
+        		v +=p.charAt(i);
+        	}
+        	
+        	if('('==p.charAt(i)) {
+        		openCnt ++;
+        	}else if(')'==p.charAt(i)) {
+        		closeCnt++;
+        	}
+        	
+        	if(openCnt!=0) {
+        		if(openCnt==closeCnt) {
+        			createSecond = true;
+        		}
+        	}
+        }
+        System.out.println(u);
+        System.out.println(v);
+        
+        
+        return null;
+    }
+    
+    }
+

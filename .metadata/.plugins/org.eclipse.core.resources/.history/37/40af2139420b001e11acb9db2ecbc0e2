@@ -1,0 +1,10 @@
+package myProejct;
+
+public class Main5 {
+	public static void main(String[] args) {
+		String case1 = "(()())()";
+		String case2 = ")(";
+		String case3 = "()))((()";
+	
+    }
+
