@@ -1,5 +1,4 @@
 INDEX VERSION 1.131+C:\Users\ENITEC\Desktop\ltj_java\.metadata\.plugins\org.eclipse.jdt.core
 3544009691.index
 1892451231.index
-1657330681.index
 1865797976.index

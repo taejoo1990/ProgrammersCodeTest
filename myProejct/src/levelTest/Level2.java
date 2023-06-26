@@ -1,47 +1,47 @@
 package levelTest;
 
+import java.util.Arrays;
+
 public class Level2 {
 	public static void main(String[] args) {
 		Solution2 sol = new Solution2();
-		sol.solution(new String[] {"img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"});
+		String[] info = new String[] { "java backend junior pizza 150", "python frontend senior chicken 210",
+				"python frontend senior chicken 150", "cpp backend senior pizza 260", "java backend junior chicken 80",
+				"python backend senior chicken 50" };
+		String[] query = new String[] { "java and backend and junior and pizza 100",
+				"python and frontend and senior and chicken 200", "cpp and - and senior and pizza 250",
+				"- and backend and senior and - 150", "- and - and - and chicken 100", "- and - and - and - 150" };
+		sol.solution(info, query);
 	}
 }
 
 class Solution2 {
-	public String[] solution(String[] files) {
-		for (int i = 0; i < files.length; i++) {
-			String head = "";
-			String number = "";
-			String tail = "";
-			int step = 0;
-			for (int j = 0; j < files[i].length(); j++) {
-				char tmp = files[i].charAt(j);
-				if (step == 0) {
-					if (isDigit(tmp)) {
-						number += tmp;
-						step++;
-					} else {
-						head += tmp;
+	public int[] solution(String[] info, String[] query) {
+		int[] answer = new int[info.length];
+		for (int i = 0; i < query.length; i++) {
+			for(int j=0; j< info.length; j++) {
+				boolean isPassed = true;
+				String[] spec = info[j].split(" ");
+				for(int k=0; k<spec.length; k++) {
+					if(k==spec.length-1) {
+						int score = Integer.parseInt(spec[k]);
+						int cutScore = Integer.parseInt(info[i].substring(info[i].length()-3));
+						if(score<cutScore) {
+							isPassed = false;
+						}
+						break;
 					}
-				}else if (step == 1) {
-					if(!isDigit(tmp)) {
-						tail += tmp;
-						step++;
-					}	
-				}else {
-					tail += tmp;
+					if(!query[i].contains(spec[k])) {
+						isPassed = false;
+						break;
+					}
+				}
+				if(isPassed) {
+					answer[i] +=1;
 				}
 			}
-			System.out.print(head+"/");
-			System.out.print(number+"/");
-			System.out.print(tail);
-			System.out.println();
 		}
-		String[] answer = {};
+		System.out.println(Arrays.toString(answer));
 		return answer;
-	}
-	
-	private boolean isDigit(char ch) {
-		return (int)ch >= 48 && (int)ch <= 57;
 	}
 }
