@@ -22,7 +22,6 @@
     <fullyQualifiedTypeName name="codeTest31To40.Solution32"/>
     <fullyQualifiedTypeName name="java.sql.Array"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
-    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="java.math.BigDecimal"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
@@ -34,6 +33,9 @@
     <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
     <fullyQualifiedTypeName name="level2codeTest01To10.Main01.Solution"/>
     <fullyQualifiedTypeName name="level2codeTest01To10.Solution"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="level2.codeTest01To10.Solution03.Position"/>
+    <fullyQualifiedTypeName name="level2.codeTest01To10.Solution03"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>
