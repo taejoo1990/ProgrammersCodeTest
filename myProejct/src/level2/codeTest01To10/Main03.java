@@ -1,63 +1,131 @@
 package level2.codeTest01To10;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class Main03 {
 
 	public static void main(String[] args) {
 		Solution03 sol = new Solution03();
-		String[] park = new String[] { "OSO","OOO","OXO","OOO" };
-		String[] routes = new String[] {"E 2","S 3","W 1" };
+		String[] park = new String[] { "OSO", "OOO", "OXO", "OOO" };
+		String[] routes = new String[] { "E 2", "S 3", "W 1" };
 		int[] result = sol.solution(park, routes);
 		System.out.println(Arrays.toString(result));
 	}
 }
 
 class Solution03 {
-	public int[] solution(String[] park, String[] routes) {
-		Position currentPosition = getStartPosition(park);
+	public int[] solution(String[] parkArr, String[] routes) {
+		Park park = setPark(parkArr);
 		for (String tmp : routes) {
 			String[] query = tmp.split(" ");
-			if (query[0].equals("E") || query[0].equals("W")) {
-				int move = Integer.parseInt(query[1]);
-				move = query[0].equals("E")? move : move*-1;
-				currentPosition.moveX(move);
-			}else {
-				int move = Integer.parseInt(query[1]);
-				move = query[0].equals("S")? move : move*-1;
-				currentPosition.moveY(move);
-			}
+			park.move(query);
 		}
-		return new int[] { currentPosition.getY(), currentPosition.getX() };
+		return new int[] {park.getCurrentPosition().getY(),park.getCurrentPosition().getX()};
 	}
 
-	private Position getStartPosition(String[] park) {
-		Position position = null;
-		for (int i = 0; i < park.length; i++) {
-			int startIdx = park[i].indexOf("S");
-			if (startIdx >= 0) {
-				position = new Position(startIdx, i,park[i].length(),park.length);
-				break;
+	private Park setPark(String[] parkArr) {
+		Park park = new Park(parkArr[0].length(), parkArr.length);
+		for (int i = 0; i < parkArr.length; i++) {
+			for (int j = 0; j < parkArr[i].length(); j++) {
+				if (parkArr[i].charAt(j) != 'O') {
+					if (parkArr[i].charAt(j) == 'S') {
+						park.setCurrentPosition(j, i);
+					} else {
+						park.setStop(j, i);
+					}
+				}
 			}
 		}
-		return position;
+		return park;
 	}
+}
+
+class Park {
+	private Position currentPosition;
+	private Position maximumPosition;
+	private ArrayList<Position> stop;
+
+	Park(int maximumX, int maximumY) {
+		this.stop = new ArrayList<Position>();
+		this.maximumPosition = new Position(maximumX, maximumY);
+	}
+
+	public Position getCurrentPosition() {
+		return currentPosition;
+	}
+
+	public void setCurrentPosition(Position currentPosition) {
+		this.currentPosition = currentPosition;
+	}
+
+	public void setCurrentPosition(int x, int y) {
+		currentPosition = new Position(x,y);
+	}
+
+	public void setStop(int x, int y) {
+		Position stopPosition = new Position(x, y);
+		this.stop.add(stopPosition);
+	}
+
+	public void move(String[] query) {
+		String direction = query[0];
+		int moveCnt = Integer.parseInt(query[1]);
+		int mode = 0;
+		if(direction.equals("E")||direction.equals("W")) {
+			moveCnt = direction.equals("E")? moveCnt : moveCnt*-1;
+			mode = 0;
+		}else {
+			moveCnt = direction.equals("S")? moveCnt : moveCnt*-1;
+			mode = 1;
+		}
+		this.currentPosition = activeMove(moveCnt, mode);
+		
+	}
+	private Position activeMove(int moveCnt, int mode) {
+		if(outOfPark(moveCnt,mode)) {
+			return currentPosition;
+		}
+		int roop = moveCnt<0? moveCnt*-1 : moveCnt;
+		Position simulator = new Position(currentPosition);
+		for(int i=0; i<roop; i++) {
+			if(mode==0) {
+				simulator.setX(simulator.getX()+(moveCnt<0 ? -1 : 1));
+			}else {
+				simulator.setY(simulator.getY()+(moveCnt<0 ? -1 : 1));
+			}
+			for(Position tmp : stop) {
+				if(tmp.equals(simulator)) {
+					return currentPosition;
+				}
+			}
+		}
+		return simulator;
+	}
+	private boolean outOfPark(int moveCnt, int mode) {
+		int expect = mode==0? currentPosition.getX()+moveCnt :currentPosition.getY()+moveCnt; 
+		if(mode==0) {
+			return expect<0 || expect>=maximumPosition.getX();
+		}else {
+			return expect<0 || expect>=maximumPosition.getY();
+		}
+	}
+
 }
 
 class Position {
 	private int x;
 	private int y;
-	private int maximumX;
-	private int maximumY;
 
-	Position(int x, int y, int maximumX, int maximumY) {
+	Position(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.maximumX = maximumX;
-		this.maximumY = maximumY;
 	}
-	
+	Position(Position position) {
+		this.x = position.getX();
+		this.y = position.getY();
+	}
+
 	public int getX() {
 		return x;
 	}
@@ -74,29 +142,9 @@ class Position {
 		this.y = y;
 	}
 
-	public int getMaximumX() {
-		return maximumX;
+	public boolean equals(Position position) {
+		return this.x == position.getX() && this.y == position.getY();
 	}
 
-	public void setMaximumX(int maximumX) {
-		this.maximumX = maximumX;
-	}
-
-	public int getMaximumY() {
-		return maximumY;
-	}
-
-	public void setMaximumY(int maximumY) {
-		this.maximumY = maximumY;
-	}
-
-	public void moveX(int move){
-		int expect = move+this.x;
-		this.x = (expect>this.maximumX || expect<0) ? this.x : expect; 
-	}
-	public void moveY(int move){
-		int expect = move+this.y;
-		this.y = (expect>this.maximumY || expect<0) ? this.y : expect; 
-	}
 
 }
