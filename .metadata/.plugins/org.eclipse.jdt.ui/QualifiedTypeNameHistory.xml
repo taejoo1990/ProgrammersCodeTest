@@ -35,7 +35,9 @@
     <fullyQualifiedTypeName name="level2codeTest01To10.Solution"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="level2.codeTest01To10.Solution03.Position"/>
-    <fullyQualifiedTypeName name="level2.codeTest01To10.Solution03"/>
     <fullyQualifiedTypeName name="java.lang.ArrayStoreException"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="javax.swing.text.Position"/>
+    <fullyQualifiedTypeName name="level2.codeTest01To10.Solution03"/>
+    <fullyQualifiedTypeName name="level2.codeTest01To10.Position"/>
 </qualifiedTypeNameHistroy>

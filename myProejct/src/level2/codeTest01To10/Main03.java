@@ -1,7 +1,7 @@
 package level2.codeTest01To10;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class Main03 {
 
@@ -10,7 +10,6 @@ public class Main03 {
 		String[] park = new String[] { "OSO", "OOO", "OXO", "OOO" };
 		String[] routes = new String[] { "E 2", "S 3", "W 1" };
 		int[] result = sol.solution(park, routes);
-		System.out.println(Arrays.toString(result));
 	}
 }
 
