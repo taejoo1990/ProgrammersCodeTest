@@ -1,6 +1,5 @@
 package level2.codeTest21To30;
 
-import java.util.stream.LongStream;
 
 public class Main28 {
 	public static void main(String[] args) {
@@ -10,7 +9,6 @@ public class Main28 {
 }
 class Solution28 {
     public boolean solution(String s) {
-        boolean answer = true;
-        return answer;
+        return (s.length()==4 ||s.length()==6)&&(s.chars().filter(ch->Character.isDigit(ch)).toArray().length==s.length());
     }
 }
