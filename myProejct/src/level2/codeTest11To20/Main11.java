@@ -1,6 +1,5 @@
 package level2.codeTest11To20;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class Main11 {
